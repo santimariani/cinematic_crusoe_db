@@ -1,0 +1,292 @@
+body {
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 5vh;
+    font-family:fantasy;
+    position: relative;
+    overflow: hidden;
+}
+
+.flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#button {
+    width: 10vw;
+    position: absolute;
+    background-color: black;
+    color: white;
+    font-family: fantasy;
+    z-index: 5;
+    border:0;
+    font-size: 6vh;
+    cursor: pointer;
+    font-style: italic;
+}
+
+.buttonBegone {
+    animation: fadeAway 1s ease-out forwards;
+}
+
+@keyframes fadeAway {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#intro {
+    width: 100vw;
+    position: absolute;
+    z-index: 4;
+}
+
+#firstPhrase,
+#secondPhrase,
+#thirdPhrase,
+#fourthPhrase {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    margin: 0;
+}
+
+#firstPhrase {
+    animation-delay: 9s;
+}
+
+#secondPhrase,
+#thirdPhrase,
+#fourthPhrase {
+    animation-delay: 2s;
+}
+
+#fourthPhrase {
+    font-size: 15vh;
+    font-style: italic;
+    transform: translateY(2.75vh);
+}
+
+.fadeInOut {
+    animation: fadeInOut 6s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 1;
+    }
+    65% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+#eyes {
+    height: 100vh;
+    width: 100vw;
+    display: block;
+    position: absolute;
+    margin: 0;
+    z-index: 3;
+}
+
+#topLid {
+    height: 50vh;
+    width: 150vw;
+    display: flex;
+    align-self:flex-start;
+    background-color: rgb(0, 0, 0);
+}
+
+.topOpen {
+    animation: up 5s ease-in-out;
+}
+
+@keyframes up {
+    0% {
+        transform: translateY(0%);
+    }
+    20% {
+        transform: translateY(-10%);
+    }
+    25% {
+        transform: translateY(0%);
+    }
+    40% {
+        transform: translateY(-30%);
+    }
+    45% {
+        transform: translateY(0%);
+    }
+    60% {
+        transform: translateY(-60%);
+    }
+    65% {
+        transform: translateY(-30%);
+    }
+    70% {
+        transform: translateY(-70%);
+    }
+    75% {
+        transform: translateY(-60%);
+    }
+    80% {
+        transform: translateY(-90%);
+    }
+    85% {
+        transform: translateY(-70%);
+    }
+    95% {
+        transform: translateY(-30%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+#bottomLid {
+    height: 60vh;
+    width: 150vw;
+    display: flex;
+    align-self: flex-end;
+    background-color: rgb(0, 0, 0);
+}
+
+.bottomOpen {
+    animation: down 5s ease-in-out;
+}
+
+@keyframes down {
+    0% {
+        transform: translateY(0%);
+    }
+    20% {
+        transform: translateY(10%);
+    }
+    25% {
+        transform: translateY(0%);
+    }
+    40% {
+        transform: translateY(30%);
+    }
+    45% {
+        transform: translateY(0%);
+    }
+    60% {
+        transform: translateY(60%);
+    }
+    65% {
+        transform: translateY(30%);
+    }
+    70% {
+        transform: translateY(70%);
+    }
+    75% {
+        transform: translateY(60%);
+    }
+    80% {
+        transform: translateY(90%);
+    }
+    85% {
+        transform: translateY(70%);
+    }
+    95% {
+        transform: translateY(30%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.fullyOpen {
+    opacity:0;
+}
+
+#video-container {
+    width: 100vw;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.clearVideo {
+    animation: clearVideo 5s ease-in-out forwards;
+}
+
+@keyframes clearVideo {
+    0% {
+        filter: blur(20px);
+    }
+    85% {
+        filter: blur(0);
+    }
+    90% {
+        filter: blur(5px);
+    }
+    95% {
+        filter: blur(5px);
+    }
+    100% {
+        filter: blur(0);
+    }
+}
+
+#inputPanel {
+    width: 75vw;
+    height: 75vh;
+    background-color: rgba(255, 255, 255, 0.66);
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    position: absolute;
+    transform: scale(0); 
+    z-index: 2;
+    opacity: 0; 
+    justify-content: center;
+    align-items: center;
+    border: 1.5vw solid rgb(40 78 115 / 78%);
+    padding: 2vw;
+    color: black;
+    font-size: 5vh;
+}
+
+#inputPanel p {
+    margin:0;
+    line-height: 1.25;
+}
+
+#inputPanel form {
+    line-height: 1.25;
+    margin:0;
+}
+
+.appear {
+    animation: appear 1s ease-in 2s forwards; 
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0); 
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); 
+    }
+}
