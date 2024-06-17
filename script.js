@@ -57,8 +57,6 @@ document.addEventListener("DOMContentLoaded", async() => {
         inputPanel.classList.add('appear');
     });
 
-    // inputPanel.addEventListener('animationend', () => {
-    // });
     const itemsResponse = await fetch ('http://localhost:8000/items');
     const items = await itemsResponse.json();
     const itemsEl = document.querySelector('#showItems');
@@ -68,4 +66,30 @@ document.addEventListener("DOMContentLoaded", async() => {
         itemsEl.appendChild(paragraph);
     });
 
+    const form = document.querySelector("#petForm");
+    async function sendData() {
+      // Associate the FormData object with the form element
+      const formData = new FormData(form);
+      const petName = formData.get("dogName")
+    
+      try {
+        const response = await fetch("http://localhost:8000/pets/add", {
+          method: "POST",
+          // Set the FormData instance as the request body
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({name: petName}),
+        });
+        console.log(await response.json());
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    
+    // Take over form submission
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      sendData();
+    });
 });
+
+

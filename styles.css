@@ -29,7 +29,6 @@ body {
     border:0;
     font-size: 6vh;
     cursor: pointer;
-    font-style: italic;
 }
 
 .buttonBegone {
@@ -74,7 +73,7 @@ body {
 #fourthPhrase {
     font-size: 15vh;
     font-style: italic;
-    transform: translateY(2.75vh);
+    transform: translateY(2.85vh);
 }
 
 .fadeInOut {
@@ -256,7 +255,7 @@ body {
     grid-template-rows: 1fr 1fr 1fr 1fr;
     position: absolute;
     transform: scale(0); 
-    z-index: 2;
+    z-index: 10;
     opacity: 0; 
     justify-content: center;
     align-items: center;

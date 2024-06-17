@@ -90,7 +90,7 @@ def list_locations(session: Session = Depends(get_session)):
   results = session.exec(statement).all()
   return results
 
-@app.post("/pets/add")
+@app.post("/locations/add")
 async def add_location(name: str, session: Session = Depends(get_session)):
     location = Locations(name=name)
     session.add(location)
@@ -104,11 +104,11 @@ def list_students(session: Session = Depends(get_session)):
   return results
 
 @app.post("/pets/add")
-async def add_pet(name: str, session: Session = Depends(get_session)):
-    pet = Pets(name=name)
-    session.add(pet)
+async def add_pet(pet: Pets, session: Session = Depends(get_session)):
+    new_pet = Pets(name=pet.name)
+    session.add(new_pet)
     session.commit()
-    return {"Piglet Added": pet.name}
+    return {"Pet Added": pet.name}
 
 @app.get('/seasons')
 def list_students(session: Session = Depends(get_session)):

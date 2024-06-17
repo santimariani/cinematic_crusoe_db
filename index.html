@@ -29,22 +29,24 @@
 
     <div id="inputPanel">
         <div>
-            <p style="font-weight: bolder;">You are one Mr. Robinson Crusoe — stuck on a deserted island after a disastrous shipwreck. Alas! and woe!</p>
+            <p style="font-weight: bolder;">You are one Mr. Robinson Crusoe — stuck on a deserted island after a disastrous shipwreck. Oh, alas! and WOE!</p>
         </div>
+            <div id="showItems">
+                <p>You search your pockets and find the following:<br></p>
+            </div>
         <div id="createPet">
-            <form>
-                <label>You save a dog and bring it with you. What is the dog's name?</label><input>
+            <form id="petForm">
+                <label for="dogName">You save a dog and bring it with you. What is the dog's name?</label>
+                <input type="text" id="name" name="dogName" required>
+                <button type="submit">NAME THE PET</button>
             </form>
         </div>
-        <div id="showItems">
-            <p>You search your pockets and find the following:<br></p>
-        </div>
         <div>
-            <p>You save an item from the ship before it sinks! The other is lost forever...<br> One • Two</p>
+            <p>You rest by a tree and examine your surroundings.<br>You take courage and go exploring.<br>You get turned into cannibal soup. Game over.</p>
         </div>
     </div>
 
-    <audio id="beachAudio" src="beachBackground.m4a" type="audio/m4a">
+    <audio id="beachAudio" src="beachBackground.m4a" type="audio/m4a" loop>
     </audio>
     <script src="script.js"></script>
 </body>
