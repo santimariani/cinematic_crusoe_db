@@ -68,14 +68,12 @@ document.addEventListener("DOMContentLoaded", async() => {
 
     const form = document.querySelector("#petForm");
     async function sendData() {
-      // Associate the FormData object with the form element
       const formData = new FormData(form);
       const petName = formData.get("dogName")
     
       try {
         const response = await fetch("http://localhost:8000/pets/add", {
           method: "POST",
-          // Set the FormData instance as the request body
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify({name: petName}),
         });
@@ -85,7 +83,6 @@ document.addEventListener("DOMContentLoaded", async() => {
       }
     }
     
-    // Take over form submission
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       sendData();

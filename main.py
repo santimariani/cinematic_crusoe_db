@@ -32,6 +32,19 @@ app.add_middleware(
 async def root():
   return {'message': 'Hello Island'}
 
+@app.get('/pets')
+def list_students(session: Session = Depends(get_session)):
+  statement = select(Pets)
+  results = session.exec(statement).all()
+  return results
+
+@app.post("/pets/add")
+async def add_pet(pet: Pets, session: Session = Depends(get_session)):
+    new_pet = Pets(name=pet.name)
+    session.add(new_pet)
+    session.commit()
+    return {"Pet Added": pet.name}
+
 @app.get("/characters")
 def list_characters(session: Session = Depends(get_session)):
   statement = select(Characters)
@@ -96,19 +109,6 @@ async def add_location(name: str, session: Session = Depends(get_session)):
     session.add(location)
     session.commit()
     return {"Location Found": location.name}
-
-@app.get('/pets')
-def list_students(session: Session = Depends(get_session)):
-  statement = select(Pets)
-  results = session.exec(statement).all()
-  return results
-
-@app.post("/pets/add")
-async def add_pet(pet: Pets, session: Session = Depends(get_session)):
-    new_pet = Pets(name=pet.name)
-    session.add(new_pet)
-    session.commit()
-    return {"Pet Added": pet.name}
 
 @app.get('/seasons')
 def list_students(session: Session = Depends(get_session)):
