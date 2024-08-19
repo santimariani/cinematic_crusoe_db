@@ -1,4 +1,4 @@
-#Cinematic_Crusoe
+#Cinematic Crusoe
 
 <b>TECH</b>: FastAPI • PostgreSQL • Postico • Video Implementation
 
